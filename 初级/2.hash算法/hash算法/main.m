@@ -7,6 +7,7 @@
 //  https://www.jianshu.com/p/82c79c43bb62
 
 #import <Foundation/Foundation.h>
+#pragma mark - 第一题
 /**
  Hash 算法
  题 ： 所在一个字符串中找到第一个只出现一次的字符
@@ -58,7 +59,7 @@ char findFirstChar(char *str) {
 }
 
 
-int main(int argc, const char * argv[]) {
+int main1(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
         
@@ -68,3 +69,36 @@ int main(int argc, const char * argv[]) {
     }
     return 0;
 }
+
+#pragma mark - 二 第二题
+//字符串反转
+//比如 给定字符串 "hello,world",输出 "dlrow,olleh"
+
+void charReverse(char *cha);
+int main() {
+    //C语言定义字符串
+    char str[] = "hello, world"; // ✅
+//    char *str2 = "hello, world"; //❌这个会奔溃的的。这定义的是指针。
+    
+    charReverse(str);
+    
+    printf("%s\n",str);
+    
+    return 0;
+}
+
+
+void charReverse(char *cha) {
+
+    //指向第一个字符的指针
+    char *begin = cha;
+    //指向最后一个字符的指针
+    char *end = cha + strlen(cha) - 1;
+    
+    while (begin < end) {
+        char temp = *begin;
+        *(begin++) = *end;
+        *(end--) = temp;
+    }
+}
+
